@@ -13,11 +13,11 @@ while value < primemax:
             marked[i] = 1
             i += value
     value += 2
-print (primes)
+#print (primes)
 
 # Test if all rotations are primes
 a = len(primes)
-print(a)
+#print(a)
 item = 0
 circularlist = []
 while item < a:
