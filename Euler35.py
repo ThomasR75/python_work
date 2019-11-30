@@ -4,7 +4,7 @@ primemax = 1000000
 marked = [0] * primemax
 primes = [2, ]
 value = 3
-s = 2
+
 while value < primemax:
     if marked[value] == 0:
         primes.append(value)
