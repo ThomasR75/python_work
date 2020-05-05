@@ -3,7 +3,7 @@
 #Create first 10,000
 
 PenNum = []
-N = list(range(1, 10000))
+N = list(range(1, 5000))
 #print (N)
 for i in N:
     PenNum.append(i*(3*i-1)/2)
