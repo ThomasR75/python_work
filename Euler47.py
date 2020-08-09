@@ -2,7 +2,7 @@
 #consecutive numbers with same digit prime factors
 from time import time
 #create list of primes
-primemax = 100000
+primemax = 135000
 marked = [0] * primemax
 primes = [2, ]
 value = 3
@@ -15,6 +15,7 @@ while value < primemax:
             marked[i] = 1
             i += value
     value += 2
+
 #parameters
 begin = time()
 start1 = 132000
@@ -24,6 +25,7 @@ step = 0
 factors = []
 integers = []
 while start1 < 135000:
+    place = 0
     start = start1
     while div < start1:
         step = start / div
@@ -31,10 +33,13 @@ while start1 < 135000:
             factors.append(div)
             start = step
         else:
-            if div > 2:
-                div += 2
-            else:
-                div += 1
+            #if div > 2:
+             #   div += 2
+            #else:
+             #   div += 1
+            place += 1
+            div = primes[place]
+
     factorset = set(factors)
     if len (list (factorset)) == 4:
         integers.append(start1)
