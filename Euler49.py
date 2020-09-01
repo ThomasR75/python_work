@@ -1,4 +1,6 @@
 #create list of primes
+from time import time
+begin = time()
 primemax = 10000
 marked = [0] * primemax
 primes = [2, ]
@@ -15,15 +17,33 @@ while value < primemax:
 #print (primes)
 
 x = primes.index(1009)
-fourdigitprimes = []
 fourdigitprimes = primes[x:]
 
 #print(fourdigitprimes)
 #print(len(fourdigitprimes))
-cleanedprimes = []
+
+reducedprimes = []
+from itertools import permutations
 for i in fourdigitprimes:
-    j = ''.join(set(str(i)))
-    if len(j) == 4:
-        cleanedprimes.append(i)
-print(cleanedprimes)
-print(len(cleanedprimes))
+    l = list(permutations(str(i)))
+    numlist = []
+    for k in l:
+
+        num = ''
+        for o in k:
+            num = num + o
+        num = int(num)
+        numlist.append(num)
+        num1 = 0
+        #print(numlist)
+        if num in fourdigitprimes and num > i:
+            step = num - i
+            num1 = num + step
+        if num1 in fourdigitprimes and num1 in numlist:
+            reducedprimes.append(i)
+            reducedprimes.append(num)
+            reducedprimes.append(num1)
+print(reducedprimes)
+print(len(reducedprimes))
+end = time()
+print("Time", end-begin)
