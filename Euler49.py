@@ -19,7 +19,7 @@ while value < primemax:
 x = primes.index(1009)
 fourdigitprimes = primes[x:]
 
-#print(fourdigitprimes)
+print(fourdigitprimes)
 #print(len(fourdigitprimes))
 
 reducedprimes = []
@@ -33,17 +33,19 @@ for i in fourdigitprimes:
         for o in k:
             num = num + o
         num = int(num)
-        numlist.append(num)
+        if num in fourdigitprimes and num not in numlist:
+            numlist.append(num)
         num1 = 0
         #print(numlist)
+
         if num in fourdigitprimes and num > i:
             step = num - i
             num1 = num + step
+            #print(numlist)
         if num1 in fourdigitprimes and num1 in numlist:
             reducedprimes.append(i)
             reducedprimes.append(num)
             reducedprimes.append(num1)
 print(reducedprimes)
-print(len(reducedprimes))
 end = time()
 print("Time", end-begin)
