@@ -20,7 +20,7 @@ while value < primemax:
     value += 2
 print (primes)
 
-primemax1 = 10000
+primemax1 = 4000
 marked1 = [0] * primemax1
 primes1 = [2, ]
 value1 = 3
@@ -52,8 +52,8 @@ while index1 < count:
     index1 += 1
     index2 = index1
 
-print (results)
-print (max(results))
+#print (results)
+#print (max(results))
 length = len(results)
 items = []
 x = 1
