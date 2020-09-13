@@ -4,8 +4,8 @@ from time import time
 
 begin = time()
 
-start = 1
-while start < 1000000:
+start = 100000
+while start < 200000:
 
 
     start2 = start * 2
