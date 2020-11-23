@@ -1,8 +1,10 @@
 #Euler54  Poker Hands
 from time import time
+from collections import Counter
 start = time()
 #read the data
 hands = []
+player1count = 0
 handsfile = open("p054_poker.txt", "r")
 hands = handsfile.read().replace("\n", ' ').split(" ")
 cards = {'2': 2, '3': 3, '4': 4, '5': 5,
@@ -11,7 +13,8 @@ cards = {'2': 2, '3': 3, '4': 4, '5': 5,
          'A': 14}
 counter = 0
 while counter < 20:
-
+    hand1value = 0
+    hand2value = 0
     #allocate cards to players 5x5
     player1 = hands[counter:counter+5]
     player2 = hands[counter+5:counter+10]
@@ -37,7 +40,7 @@ while counter < 20:
         player1hand = 1
 
     if len(set(player2suit)) == 1:
-        player2hand = 20
+        player2hand = 400
     else:
         player2hand = 1
     #translate hand into values
@@ -74,13 +77,16 @@ while counter < 20:
             (player2values[0] == player2values[1] and player2values[2] == player2values[4]):
         hand2value = 100 * player2values[1] + 100 * player2values[4]
 
-
+    if hand1value > hand2value:
+        player1count += 1
     print(player1card, player2card)
     print(player1suit, player2suit)
     print(player1hand, player2hand)
     print(player1values, player2values)
     print(diff1, diff2)
     print(hand1value, hand2value)
+    print(player1count)
+
     counter += 10
 print(hands[0:20])
 end = time()
