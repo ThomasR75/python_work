@@ -1,4 +1,4 @@
-primemax = 30
+primemax = 3000
 marked = [0] * primemax
 primes = []
 value = 3
