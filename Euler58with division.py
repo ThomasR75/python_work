@@ -1,13 +1,13 @@
 # Euler 58 spiral primes
-
+import math
 from time import time
 starttime = time()
 
 #Generate Primes using fast sieve
 
-primemax = 100000
+primemax = 30000
 marked = [0] * primemax
-primes = []
+primes = [2]
 value = 3
 s = 2
 while value < primemax:
@@ -19,7 +19,7 @@ while value < primemax:
             marked[i] = 1
             i += value
     value += 2
-#print(primes)
+print(primes)
 
 #Create Spiral numbers and check if prime
 start = 1
@@ -28,19 +28,24 @@ counter = 1
 loop = 1
 ratio = 1
 isprime = 0
-#isprimelist = []
+isprimelist = []
 noprime = 1
-#noprimelist = []
+noprimelist = []
 #while loop < 4:
-while ratio > 0.50:
+while ratio > 0.1:
     while counter < 5:
         start = start + step
-        if start in primes:
-            isprime += 1
-            #isprimelist.append(start)
-        else:
+        factorlist = []
+        for i in primes:
+            if i <= math.sqrt(start):
+                if start % i == 0:
+                    factorlist.append(i)
+        if len(factorlist) > 0:
             noprime += 1
-            #noprimelist.append(start)
+            noprimelist.append(start)
+        else:
+            isprime += 1
+            isprimelist.append(start)
         counter += 1
 
     step += 2
@@ -48,9 +53,9 @@ while ratio > 0.50:
     counter = 1
     ratio = isprime / (isprime + noprime)
 print(isprime)
-#print(isprimelist)
+print(isprimelist)
 print(noprime)
-#print(noprimelist)
+print(noprimelist)
 print(ratio)
 print(loop)
 print(start)

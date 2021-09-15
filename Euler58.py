@@ -5,9 +5,9 @@ starttime = time()
 
 #Generate Primes using fast sieve
 
-primemax = 100000
+primemax = 300000
 marked = [0] * primemax
-primes = []
+primes = [2]
 value = 3
 s = 2
 while value < primemax:
@@ -28,19 +28,19 @@ counter = 1
 loop = 1
 ratio = 1
 isprime = 0
-#isprimelist = []
+isprimelist = []
 noprime = 1
-#noprimelist = []
+noprimelist = []
 #while loop < 4:
 while ratio > 0.10:
     while counter < 5:
         start = start + step
         if start in primes:
             isprime += 1
-            #isprimelist.append(start)
+            isprimelist.append(start)
         else:
             noprime += 1
-            #noprimelist.append(start)
+            noprimelist.append(start)
         counter += 1
 
     step += 2
@@ -48,9 +48,9 @@ while ratio > 0.10:
     counter = 1
     ratio = isprime / (isprime + noprime)
 print(isprime)
-#print(isprimelist)
+print(isprimelist)
 print(noprime)
-#print(noprimelist)
+print(noprimelist)
 print(ratio)
 print(loop)
 print(start)
