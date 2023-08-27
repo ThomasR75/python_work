@@ -17,21 +17,26 @@ while value < primemax:
 #take first prime and second prime
 first = 0
 second = 2
-third = 4
+third = 3
 p1 = primes[first]
 p2 = primes[second]
 p3 = primes[third]
 numbers = [p1,p2,p3]
-sum = 3
-while sum in primes:
+num_sum = 3
+while num_sum in primes:
     for i in numbers:
         for j in numbers:
             if i != j:
-                sum = int(str(i)+str(j))
-                if sum not in primes:
-                    print (str(sum) + " no prime")
+                num_sum = int(str(i)+str(j))
+                if num_sum not in primes:
+                    print (str(num_sum) + " no prime")
                     break
                 else:
-                    print (sum)
+                    print (num_sum)
+        else:
+            continue
+        break
+    else:
+        break
 else:
     print ("not prime")
