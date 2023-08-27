@@ -27,18 +27,17 @@ numbers = [p1,p2, p3]
 
 while True:
     prime_set = set(numbers)
-    print(int(str(a) + str(b)) in primes for a, b in combinations(numbers,2))
+    print("Checking number", numbers)
 
     if all(int(str(a) + str(b)) in primes and int(str(b) + str(a)) in primes for a, b
                                                  in combinations(numbers,2)):
         print(numbers)
         break
-    for i, num in enumerate(numbers):
-        if num == primes[-1]:
+    for i in range(len(numbers)-1, -1, -1):
+        if numbers[i] == primes[-1]:
             break
-        numbers[i] = primes[primes.index(num) + 1]
-        if i > 0:
-            numbers[:i] = primes[:i]
+        numbers[i] = primes[primes.index(numbers[i]) + 1]
+        numbers[i+1:] = primes[:i+1]
         break
     else:
         break
