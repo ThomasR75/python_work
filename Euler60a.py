@@ -3,7 +3,7 @@
 from itertools import combinations
 
 #Create primes with fast sieve
-primemax = 999000
+primemax = 1000
 marked = [0] * primemax
 primes = []
 value = 3
@@ -17,29 +17,25 @@ while value < primemax:
     value += 2
 
 #take first prime and second prime
-first = 0
-second = 1
-third = 2
-p1 = primes[first]
-p2 = primes[second]
-p3 = primes[third]
-numbers = [p1,p2, p3]
+numbers = [primes[0], primes[1], primes[2], primes[3]]
 
 while True:
     prime_set = set(numbers)
     print("Checking number", numbers)
 
-    if all(int(str(a) + str(b)) in primes and int(str(b) + str(a)) in primes for a, b
-                                                 in combinations(numbers,2)):
+    if all(int(str(a) + str(b)) in primes and int(str(b) + str(a)) in primes for a, b in combinations(prime_set, 2)):
         print(numbers)
         break
-    for i in range(len(numbers)-1, -1, -1):
-        if numbers[i] == primes[-1]:
-            break
-        numbers[i] = primes[primes.index(numbers[i]) + 1]
-        numbers[i+1:] = primes[:i+1]
-        break
-    else:
-        break
 
-print ("not prime")
+    i = len(numbers) - 1
+    while i >= 0:
+        if numbers[i] < primes[-1]:
+            numbers[i] = primes[primes.index(numbers[i]) + 1]
+            break
+        else:
+            numbers[i] = primes[0]
+            i -= 1
+            if i < 0:
+                break
+
+print("Not prime")
