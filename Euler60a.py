@@ -3,7 +3,7 @@
 from itertools import combinations
 
 #Create primes with fast sieve
-primemax = 1000
+primemax = 99000
 marked = [0] * primemax
 primes = []
 value = 3
@@ -33,7 +33,7 @@ while True:
             numbers[i] = primes[primes.index(numbers[i]) + 1]
             break
         else:
-            numbers[i] = primes[0]
+            numbers[i] = primes[primes.index(numbers[i-1]) + 2]
             i -= 1
             if i < 0:
                 break
